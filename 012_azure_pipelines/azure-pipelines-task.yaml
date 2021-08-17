@@ -9,9 +9,10 @@ variables:
 
 parameters:
   - name: options
+    default: smokeOptions
     values:
-      - stressOptions
       - smokeOptions
+      - stressOptions
 steps:
   - pwsh: |
       ls
