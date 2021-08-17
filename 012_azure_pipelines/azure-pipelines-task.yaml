@@ -1,5 +1,14 @@
 # azure-pipelines.yml
 
+parameters:
+- name: option
+  displayName: Option
+  type: string
+  default: stressOptions
+  values:
+  - stressOptions
+  - smokeOptions
+
 pool:
   vmImage: 'ubuntu-latest'
 
@@ -9,10 +18,3 @@ steps:
   - task: k6-load-test@0
     inputs:
       filename: '003_basic_test/http_get.js'
-parameters:
-- name: options
-  displayName: Options
-  type: string
-  values:
-  - stressOptions
-  - smokeOptions
