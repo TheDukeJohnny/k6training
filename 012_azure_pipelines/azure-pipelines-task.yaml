@@ -1,10 +1,10 @@
 # azure-pipelines.yml
 
 parameters:
-- name: option
-  displayName: Option
+- name: options
+  displayName: Options
   type: string
-  default: stressOptions
+  default: smokeOptions
   values:
   - stressOptions
   - smokeOptions
@@ -18,3 +18,4 @@ steps:
   - task: k6-load-test@0
     inputs:
       filename: '003_basic_test/http_get.js'
+      args: -e options=${{ parameters.options }}
